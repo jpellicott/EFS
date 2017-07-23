@@ -12,9 +12,11 @@ class Customer(models.Model):
     zipcode = models.CharField(max_length=10)
     email = models.EmailField(max_length=200)
     cell_phone = models.CharField(max_length=50)
+    demographics = models.CharField(max_length=50, null=True, blank=True)
     created_date = models.DateTimeField(
         default=timezone.now)
     updated_date = models.DateTimeField(auto_now_add=True)
+
 
 
     def created(self):

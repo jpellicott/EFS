@@ -129,7 +129,7 @@ def investment_edit(request, pk):
            investment.updated_date = timezone.now()
            investment.save()
            investments = Investment.objects.filter(acquired_date__lte=timezone.now())
-           return render(request, 'portfolio/stock_list.html', {'investments': investments})
+           return render(request, 'portfolio/investment_list.html', {'investments': investments})
    else:
        # print("else")
        form = StockForm(instance=investment)
@@ -137,9 +137,9 @@ def investment_edit(request, pk):
 
 @login_required
 def investment_delete(request, pk):
-   investment = get_object_or_404(Stock, pk=pk)
+   investment = get_object_or_404(Investment, pk=pk)
    investment.delete()
-   investments = Investment.objects.filter(purchase_date__lte=timezone.now())
+   investments = Investment.objects.filter(acquired_date__lte=timezone.now())
    return render(request, 'portfolio/investment_list.html', {'investments': investments})
 
 

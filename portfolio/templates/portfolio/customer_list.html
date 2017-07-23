@@ -42,6 +42,7 @@
                 <th>Zip</th>
                 <th>Primary Email</th>
                 <th>Cell Phone</th>
+                <th>Demographics</th>
                 <th colspan="3">Actions</th>
             </tr>
             </thead>
@@ -56,6 +57,7 @@
                     <td>{{ customer.zipcode }}</td>
                     <td>{{ customer.email }}</td>
                     <td>{{ customer.cell_phone }}</td>
+                    <td>{{ customer.demographics }}</td>
                     <td><a href="{% url 'portfolio:customer_edit' pk=customer.pk %}" class="btn btn-warning">Edit</a>
                     <td><a href="{% url 'portfolio:customer_delete' pk=customer.pk %}"
                            onclick="return confirm('Are you sure you want to delete?')"
